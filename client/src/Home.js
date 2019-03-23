@@ -16,24 +16,15 @@ class Home extends Component {
     }
 
     
-    // async componentDidMount(){
-    //     const kcho = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const kvbw = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const kshd = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const kgve = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const kw13 = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KW13?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const kiad = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-    //     const newObj = {
-    //         kcho : kcho.data,
-    //         kvbw: kvbw.data,
-    //         kshd: kshd.data,
-    //         kgve: kgve.data,
-    //         kw13: kw13.data,
-    //         kiad: kiad.data
-    //     }
-    //     console.log(kcho)
-    //     this.setState(newObj)
-    // }
+     componentDidMount(){
+         axios.get(`https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
+            this.setState({
+                
+            })    
+         console.log(res)
+         })
+
+        }
 
 
     render(){
