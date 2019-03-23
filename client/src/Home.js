@@ -14,111 +14,75 @@ class Home extends Component {
         }
     }
 
-    
-    //  componentDidMount(){
-    //      axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //         this.setState({
-    //             kcho: res.data
-    //         })    
-    //         console.log(res.data['Wind-Speed'])
-    //      })
-
-    //      axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //         this.setState({
-    //             kvbw: res.data
-    //         }) 
-    //      })
-
-    //      axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //         this.setState({
-    //             kshd: res.data
-    //         })  
-    //      })
-
-    //      axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //         this.setState({
-    //             kgve: res.data
-    //         }) 
-    //      })
-    //         // BROEKN, NO DATA. CORS ERROR. FORWARDER DIDN'T WORK. GIVING UP ON FOR NOW FOR SAKE OF TIME
-    //     //  axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KW13?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //     //     this.setState({
-    //     //         kw13: res.data
-    //     //     })    
-    //     //  })
-
-    //      axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
-    //         this.setState({
-    //             kiad: res.data
-    //         })  
-    //      })
-    //     }
-
-        async componentDidMount(){
-            const kcho = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-            const kvbw = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-            const kshd = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-            const kgve = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-            const kiad = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
-            const newObj = {
-                kcho: kcho.data,
-                kvbw: kvbw.data,
-                kshd: kshd.data,
-                kgve: kgve.data,
-                kiad: kiad.data
-            }
-            this.setState(newObj)
+    async componentDidMount(){
+        const kcho = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+        const kvbw = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+        const kshd = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+        const kgve = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+        const kiad = await axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+        const newObj = {
+            kcho: kcho.data,
+            kvbw: kvbw.data,
+            kshd: kshd.data,
+            kgve: kgve.data,
+            kiad: kiad.data
         }
+        this.setState(newObj)
+    }
 
 
     render(){
-        console.log(this.state.kcho)
+        const KCHO = this.state.kcho
+        const KVBW = this.state.kvbw
+        const KSHD = this.state.kshd
+        const KGVE = this.state.kgve
+        const KIAD = this.state.kiad
         return(
             <div>
                 <h1>Current Flying Conditions</h1>
                 <div className='stationContainer'>
                     <div className='charlottesville'>
                         <h2>City: Charlottesville</h2>
-                        <h2>Wind Speed: {this.state.kcho['Wind-Speed']}</h2>
-                        <h2>Wind Direction: {this.state.kcho['Wind-Direction']}</h2>
-                        <h2>Temperature: {this.state.kcho.Temperature}</h2>
-                        {this.state.kcho.Visibility > 5 ?
+                        <h2>Wind Speed: {KCHO['Wind-Speed']}</h2>
+                        <h2>Wind Direction: {KCHO['Wind-Direction']}</h2>
+                        <h2>Temperature: {KCHO.Temperature}</h2>
+                        {KCHO.Visibility > 5 ?
                             <h2>Visibility is great</h2>
                         :
-                            <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                            <h2>Visibility: {KCHO.Visibility}</h2>
                         }
                     </div>
                         <div className='bridgewater'>
                             <h2>City: Bridgewater</h2>
-                            <h2>Wind Speed: {this.state.kvbw['Wind-Speed']}</h2>
-                            <h2>Wind Direction: {this.state.kvbw['Wind-Direction']}</h2>
-                            <h2>Temperature: {this.state.kvbw.Temperature}</h2>
-                            {this.state.kvbw.Visibility > 5 ?
+                            <h2>Wind Speed: {KVBW['Wind-Speed']}</h2>
+                            <h2>Wind Direction: {KVBW['Wind-Direction']}</h2>
+                            <h2>Temperature: {KVBW.Temperature}</h2>
+                            {KVBW.Visibility > 5 ?
                                 <h2>Visibility is great</h2>
                             :
-                                <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                                <h2>Visibility: {KVBW.Visibility}</h2>
                             }
                         </div>
                             <div className='weyersCave'>
                                 <h2>City: WeyersCave</h2>
-                                <h2>Wind Speed: {this.state.kshd['Wind-Speed']}</h2>
-                                <h2>Wind Direction: {this.state.kshd['Wind-Direction']}</h2>
-                                <h2>Temperature: {this.state.kshd.Temperature}</h2>
-                                {this.state.kshd.Visibility > 5 ?
+                                <h2>Wind Speed: {KSHD['Wind-Speed']}</h2>
+                                <h2>Wind Direction: {KSHD['Wind-Direction']}</h2>
+                                <h2>Temperature: {KSHD.Temperature}</h2>
+                                {KSHD.Visibility > 5 ?
                                     <h2>Visibility is great</h2>
                                 :
-                                    <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                                    <h2>Visibility: {KSHD.Visibility}</h2>
                                 }
                         </div>
                             <div className='gordonsville'>
                                 <h2>City: Gordonsville</h2>
-                                <h2>Wind Speed: {this.state.kgve['Wind-Speed']}</h2>
-                                <h2>Wind Direction: {this.state.kgve['Wind-Direction']}</h2>
-                                <h2>Temperature: {this.state.kgve.Temperature}</h2>
-                                {this.state.kgve.Visibility > 5 ?
+                                <h2>Wind Speed: {KGVE['Wind-Speed']}</h2>
+                                <h2>Wind Direction: {KGVE['Wind-Direction']}</h2>
+                                <h2>Temperature: {KGVE.Temperature}</h2>
+                                {KGVE.Visibility > 5 ?
                                     <h2>Visibility is great</h2>
                                 :
-                                    <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                                    <h2>Visibility: {KGVE.Visibility}</h2>
                                 }
                             </div>
                         <div className='waynesboro'>
@@ -127,13 +91,13 @@ class Home extends Component {
                         </div>
                     <div className='washington'>
                         <h2>City: Washington</h2>
-                        <h2>Wind Speed: {this.state.kiad['Wind-Speed']}</h2>
-                        <h2>Wind Direction: {this.state.kiad['Wind-Direction']}</h2>
-                        <h2>Temperature: {this.state.kiad.Temperature}</h2>
-                        {this.state.kiad.Visibility > 5 ?
+                        <h2>Wind Speed: {KIAD['Wind-Speed']}</h2>
+                        <h2>Wind Direction: {KIAD['Wind-Direction']}</h2>
+                        <h2>Temperature: {KIAD.Temperature}</h2>
+                        {KIAD.Visibility > 5 ?
                         <h2>Visibility is great</h2>
                         :
-                        <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                        <h2>Visibility: {KIAD.Visibility}</h2>
                         }
                     </div>
                 </div>
