@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 
+
 class Home extends Component {
     constructor(){
         super()
@@ -14,23 +15,25 @@ class Home extends Component {
         }
     }
 
-    async componentDidMount(){
-        const kcho = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_APIKEY}`)
-        const kvbw = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_APIKEY}`)
-        const kshd = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_APIKEY}`)
-        const kgve = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_APIKEY}`)
-        const kw13 = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KW13?api_key=${process.env.REACT_APP_APIKEY}`)
-        const kiad = await axios.get(`/unblocker?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_APIKEY}`)
-        const newObj = {
-            kcho : kcho.data,
-            kvbw: kvbw.data,
-            kshd: kshd.data,
-            kgve: kgve.data,
-            kw13: kw13.data,
-            kiad: kiad.data
-        }
-        this.setState(newObj)
-    }
+    
+    // async componentDidMount(){
+    //     const kcho = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KCHO?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const kvbw = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KVBW?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const kshd = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KSHD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const kgve = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KGVE?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const kw13 = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KW13?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const kiad = await axios.get(`/forwader?url=https://wx.wearebraid.com/stations/KIAD?api_key=${process.env.REACT_APP_BRAID_KEY}`)
+    //     const newObj = {
+    //         kcho : kcho.data,
+    //         kvbw: kvbw.data,
+    //         kshd: kshd.data,
+    //         kgve: kgve.data,
+    //         kw13: kw13.data,
+    //         kiad: kiad.data
+    //     }
+    //     console.log(kcho)
+    //     this.setState(newObj)
+    // }
 
 
     render(){
