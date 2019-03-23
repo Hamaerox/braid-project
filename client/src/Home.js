@@ -9,10 +9,12 @@ class Home extends Component {
         }
     }
 
+
+
     render(){
         return(
             <div>
-
+                <p>Hello hello, let's get this started</p>
             </div>
         )
     }
