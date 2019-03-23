@@ -40,7 +40,7 @@ class Home extends Component {
     //             kgve: res.data
     //         }) 
     //      })
-    //         // BROEKN, NO DATA. CORS ERROR. FORWARDER DIDN'T WORK.
+    //         // BROEKN, NO DATA. CORS ERROR. FORWARDER DIDN'T WORK. GIVING UP ON FOR NOW FOR SAKE OF TIME
     //     //  axios.get(`/forwarder?url=https://wx.wearebraid.com/stations/KW13?api_key=${process.env.REACT_APP_BRAID_KEY}`).then(res => {
     //     //     this.setState({
     //     //         kw13: res.data
@@ -74,66 +74,68 @@ class Home extends Component {
     render(){
         console.log(this.state.kcho)
         return(
-            
-            <div className='stationContainer'>
-                <div className='charlottesville'>
-                    <p>City: Charlottesville</p>
-                    <p>Wind Speed: {this.state.kcho['Wind-Speed']}</p>
-                    <p>Wind Direction: {this.state.kcho['Wind-Direction']}</p>
-                    <p>Temperature: {this.state.kcho.Temperature}</p>
-                    {this.state.kcho.Visibility > 5 ?
-                        <p>Visibility is great</p>
-                    :
-                        <p>Visibility: {this.state.kiad.Visibility}</p>
-                    }
-                </div>
-                    <div className='bridgewater'>
-                        <p>City: Bridgewater</p>
-                        <p>Wind Speed: {this.state.kvbw['Wind-Speed']}</p>
-                        <p>Wind Direction: {this.state.kvbw['Wind-Direction']}</p>
-                        <p>Temperature: {this.state.kvbw.Temperature}</p>
-                        {this.state.kvbw.Visibility > 5 ?
-                            <p>Visibility is great</p>
+            <div>
+                <h1>Current Flying Conditions</h1>
+                <div className='stationContainer'>
+                    <div className='charlottesville'>
+                        <h2>City: Charlottesville</h2>
+                        <h2>Wind Speed: {this.state.kcho['Wind-Speed']}</h2>
+                        <h2>Wind Direction: {this.state.kcho['Wind-Direction']}</h2>
+                        <h2>Temperature: {this.state.kcho.Temperature}</h2>
+                        {this.state.kcho.Visibility > 5 ?
+                            <h2>Visibility is great</h2>
                         :
-                            <p>Visibility: {this.state.kiad.Visibility}</p>
+                            <h2>Visibility: {this.state.kiad.Visibility}</h2>
                         }
                     </div>
-                        <div className='weyersCave'>
-                            <p>City: WeyersCave</p>
-                            <p>Wind Speed: {this.state.kshd['Wind-Speed']}</p>
-                            <p>Wind Direction: {this.state.kshd['Wind-Direction']}</p>
-                            <p>Temperature: {this.state.kshd.Temperature}</p>
-                            {this.state.kshd.Visibility > 5 ?
-                                <p>Visibility is great</p>
+                        <div className='bridgewater'>
+                            <h2>City: Bridgewater</h2>
+                            <h2>Wind Speed: {this.state.kvbw['Wind-Speed']}</h2>
+                            <h2>Wind Direction: {this.state.kvbw['Wind-Direction']}</h2>
+                            <h2>Temperature: {this.state.kvbw.Temperature}</h2>
+                            {this.state.kvbw.Visibility > 5 ?
+                                <h2>Visibility is great</h2>
                             :
-                                <p>Visibility: {this.state.kiad.Visibility}</p>
-                            }
-                       </div>
-                        <div className='gordonsville'>
-                            <p>City: Gordonsville</p>
-                            <p>Wind Speed: {this.state.kgve['Wind-Speed']}</p>
-                            <p>Wind Direction: {this.state.kgve['Wind-Direction']}</p>
-                            <p>Temperature: {this.state.kgve.Temperature}</p>
-                            {this.state.kgve.Visibility > 5 ?
-                                <p>Visibility is great</p>
-                            :
-                                <p>Visibility: {this.state.kiad.Visibility}</p>
+                                <h2>Visibility: {this.state.kiad.Visibility}</h2>
                             }
                         </div>
-                    <div className='waynesboro'>
-                        <p>City: Waynesboro</p>
-                        <p>SYSTEM CURRENTLY DOWN</p>
+                            <div className='weyersCave'>
+                                <h2>City: WeyersCave</h2>
+                                <h2>Wind Speed: {this.state.kshd['Wind-Speed']}</h2>
+                                <h2>Wind Direction: {this.state.kshd['Wind-Direction']}</h2>
+                                <h2>Temperature: {this.state.kshd.Temperature}</h2>
+                                {this.state.kshd.Visibility > 5 ?
+                                    <h2>Visibility is great</h2>
+                                :
+                                    <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                                }
+                        </div>
+                            <div className='gordonsville'>
+                                <h2>City: Gordonsville</h2>
+                                <h2>Wind Speed: {this.state.kgve['Wind-Speed']}</h2>
+                                <h2>Wind Direction: {this.state.kgve['Wind-Direction']}</h2>
+                                <h2>Temperature: {this.state.kgve.Temperature}</h2>
+                                {this.state.kgve.Visibility > 5 ?
+                                    <h2>Visibility is great</h2>
+                                :
+                                    <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                                }
+                            </div>
+                        <div className='waynesboro'>
+                            <h2>City: Waynesboro</h2>
+                            <h2>SYSTEM CURRENTLY DOWN</h2>
+                        </div>
+                    <div className='washington'>
+                        <h2>City: Washington</h2>
+                        <h2>Wind Speed: {this.state.kiad['Wind-Speed']}</h2>
+                        <h2>Wind Direction: {this.state.kiad['Wind-Direction']}</h2>
+                        <h2>Temperature: {this.state.kiad.Temperature}</h2>
+                        {this.state.kiad.Visibility > 5 ?
+                        <h2>Visibility is great</h2>
+                        :
+                        <h2>Visibility: {this.state.kiad.Visibility}</h2>
+                        }
                     </div>
-                <div className='washington'>
-                    <p>City: Washington</p>
-                    <p>Wind Speed: {this.state.kiad['Wind-Speed']}</p>
-                    <p>Wind Direction: {this.state.kiad['Wind-Direction']}</p>
-                    <p>Temperature: {this.state.kiad.Temperature}</p>
-                    {this.state.kiad.Visibility > 5 ?
-                    <p>Visibility is great</p>
-                    :
-                    <p>Visibility: {this.state.kiad.Visibility}</p>
-                    }
                 </div>
             </div>
         )
