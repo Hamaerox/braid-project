@@ -6,11 +6,11 @@ class Home extends Component {
     constructor(){
         super()
         this.state = {
-            kcho: '',
-            kvbw: '',
-            kshd: '',
-            kgve: '',
-            kiad: ''
+            kcho: {},
+            kvbw: {},
+            kshd: {},
+            kgve: {},
+            kiad: {}
         }
     }
 
@@ -72,27 +72,68 @@ class Home extends Component {
 
 
     render(){
-        console.log(this.kcho)
+        console.log(this.state.kcho)
         return(
             
             <div className='stationContainer'>
                 <div className='charlottesville'>
-                    <p>charlottesville</p>
+                    <p>City: Charlottesville</p>
+                    <p>Wind Speed: {this.state.kcho['Wind-Speed']}</p>
+                    <p>Wind Direction: {this.state.kcho['Wind-Direction']}</p>
+                    <p>Temperature: {this.state.kcho.Temperature}</p>
+                    {this.state.kcho.Visibility > 5 ?
+                        <p>Visibility is great</p>
+                    :
+                        <p>Visibility: {this.state.kiad.Visibility}</p>
+                    }
                 </div>
                     <div className='bridgewater'>
-                        <p>bridgewater</p>
+                        <p>City: Bridgewater</p>
+                        <p>Wind Speed: {this.state.kvbw['Wind-Speed']}</p>
+                        <p>Wind Direction: {this.state.kvbw['Wind-Direction']}</p>
+                        <p>Temperature: {this.state.kvbw.Temperature}</p>
+                        {this.state.kvbw.Visibility > 5 ?
+                            <p>Visibility is great</p>
+                        :
+                            <p>Visibility: {this.state.kiad.Visibility}</p>
+                        }
                     </div>
                         <div className='weyersCave'>
-                            <p>weyersCave</p>
-                        </div>
+                            <p>City: WeyersCave</p>
+                            <p>Wind Speed: {this.state.kshd['Wind-Speed']}</p>
+                            <p>Wind Direction: {this.state.kshd['Wind-Direction']}</p>
+                            <p>Temperature: {this.state.kshd.Temperature}</p>
+                            {this.state.kshd.Visibility > 5 ?
+                                <p>Visibility is great</p>
+                            :
+                                <p>Visibility: {this.state.kiad.Visibility}</p>
+                            }
+                       </div>
                         <div className='gordonsville'>
-                            <p>gordonsville</p>
+                            <p>City: Gordonsville</p>
+                            <p>Wind Speed: {this.state.kgve['Wind-Speed']}</p>
+                            <p>Wind Direction: {this.state.kgve['Wind-Direction']}</p>
+                            <p>Temperature: {this.state.kgve.Temperature}</p>
+                            {this.state.kgve.Visibility > 5 ?
+                                <p>Visibility is great</p>
+                            :
+                                <p>Visibility: {this.state.kiad.Visibility}</p>
+                            }
                         </div>
                     <div className='waynesboro'>
-                        <p>Waynesboro system is currently down</p>
+                        <p>City: Waynesboro</p>
+                        <p>SYSTEM CURRENTLY DOWN</p>
                     </div>
                 <div className='washington'>
-                    <p>washington</p>
+                    <p>City: Washington</p>
+                    <p>Wind Speed: {this.state.kiad['Wind-Speed']}</p>
+                    <p>Wind Direction: {this.state.kiad['Wind-Direction']}</p>
+                    <p>Temperature: {this.state.kiad.Temperature}</p>
+                    {this.state.kiad.Visibility > 5 ?
+                    <p>Visibility is great</p>
+                    :
+                    <p>Visibility: {this.state.kiad.Visibility}</p>
+                    }
                 </div>
             </div>
         )
